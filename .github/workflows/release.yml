@@ -28,3 +28,4 @@ jobs:
       release_mode: ${{ inputs.release_mode }}
     secrets:
       mod_portal_token: ${{ secrets.FACTORIO_MOD_PORTAL_TOKEN }}
+      gpg_private_key: ${{ secrets.FACTORIO_DEVOPS_GPG_PRIVATE_KEY }}
