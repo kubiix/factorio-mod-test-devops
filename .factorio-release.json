@@ -1,6 +1,6 @@
 {
-  "versionState": "release",
+  "versionState": "development",
   "origin": "own",
   "published": "false",
-  "versionLine": "0.3.0"
+  "versionLine": "0.3.x"
 }
