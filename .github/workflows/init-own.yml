@@ -1,0 +1,52 @@
+name: Initialize own mod
+
+on:
+  workflow_dispatch:
+    inputs:
+      internal_name:
+        description: Internal mod name; starts with kubiix- and cannot end in -continued
+        required: true
+        type: string
+      mod_title:
+        description: Factorio title in info.json
+        required: true
+        type: string
+      category:
+        description: Mod Portal category
+        required: true
+        default: utilities
+        type: choice
+        options: [no-category, content, overhaul, tweaks, utilities, scenarios, mod-packs, localizations, internal]
+      tags:
+        description: Optional comma-separated Mod Portal tags
+        required: false
+        type: string
+      description:
+        description: Optional Mod Portal description (Markdown)
+        required: false
+        type: string
+      faq:
+        description: Optional Mod Portal FAQ (Markdown)
+        required: false
+        type: string
+      summary:
+        description: In-game description and Mod Portal summary (maximum 500 characters)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  initialize:
+    uses: kubiix/factorio-devops/.github/workflows/init-own-factorio-mod.yml@main
+    with:
+      internal_name: ${{ inputs.internal_name }}
+      mod_title: ${{ inputs.mod_title }}
+      category: ${{ inputs.category }}
+      tags: ${{ inputs.tags }}
+      description: ${{ inputs.description }}
+      faq: ${{ inputs.faq }}
+      summary: ${{ inputs.summary }}
+    secrets:
+      gpg_private_key: ${{ secrets.FACTORIO_DEVOPS_GPG_PRIVATE_KEY }}
