@@ -1,5 +1,6 @@
 {
-  "versionState": "initPending",
-  "origin": "none",
-  "published": "false"
+  "versionState": "development",
+  "origin": "own",
+  "published": "false",
+  "versionLine": "0.1.x"
 }
